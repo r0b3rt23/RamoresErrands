@@ -1,0 +1,80 @@
+<resources>
+    <string name="app_name">Ramores Errands</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="all_products">All Products</string>
+    <string name="favorites">Favorites</string>
+    <string name="grocery">Grocery</string>
+    <string name="fashion_wear">Clotheslines</string>
+    <string name="gifts_pasalubong">Gifts/Pasalubong</string>
+    <string name="sports_wear">Sports Gear</string>
+    <string name="kitchenware">Kitchenware</string>
+    <string name="appliances">Appliances</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="password">Password</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="no_account_yet">No account yet?</string>
+    <string name="sign_up_now">Sign up now.</string>
+    <string name="email">Email</string>
+    <string name="logout">LOGOUT</string>
+
+    <string name="facebook_app_id">2419100051538156</string>
+    <string name="fb_login_protocol_scheme">fb2419100051538156</string>
+
+    <string-array name="gender_array">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+    <string-array name="city_array">
+        <item>Naga City</item>
+    </string-array>
+
+    <string-array name="barangay_array">
+        <item>Abella</item>
+        <item>Bagumbayan Norte</item>
+        <item>Bagumbayan Sur</item>
+        <item>Balatas</item>
+        <item>Calauag</item>
+        <item>Cararayan</item>
+        <item>Carolina</item>
+        <item>Concepcion Grande</item>
+        <item>Concepcion Pequeña</item>
+        <item>Dayangdang</item>
+        <item>Del Rosario</item>
+        <item>Dinaga</item>
+        <item>Igualdad Interior</item>
+        <item>Lerma</item>
+        <item>Liboton</item>
+        <item>Mabolo</item>
+        <item>Pacol</item>
+        <item>Panicuason</item>
+        <item>Peñafrancia</item>
+        <item>Sabang</item>
+        <item>San Felipe</item>
+        <item>San Francisco</item>
+        <item>San Isidro</item>
+        <item>Santa Cruz</item>
+        <item>Tabuco</item>
+        <item>Tinago</item>
+        <item>Triangulo</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="description"><u>Description</u></string>
+
+</resources>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.ramoreserrands">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/re_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/re_logo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".activities.Feedback"></activity>
+        <activity android:name=".activities.ContactUs" />
+        <activity android:name=".activities.ItemProduct" />
+        <activity android:name=".activities.Search" />
+        <activity android:name=".activities.Checkout" />
+        <activity android:name=".activities.ShippingAddress" />
+        <activity android:name=".activities.Cart" />
+        <activity android:name=".activities.Favorites" />
+        <activity android:name=".activities.EditProfile" />
+        <activity android:name=".activities.Profile" />
+        <activity android:name=".activities.CreateAccount" />
+        <activity
+            android:name=".activities.Login"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".activities.MainActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+    </application>
+
+</manifest>

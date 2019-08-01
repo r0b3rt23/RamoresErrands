@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#f2f3f4"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.ContactUs">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="#ffff" />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView20"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                app:srcCompat="@drawable/character_logo" />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/smart_contact"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="6dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/del_item"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:padding="5dp"
+                        app:srcCompat="@drawable/ic_contact_phone_24dp" />
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:gravity="center_vertical"
+                        android:text="Smart:"
+                        android:textColor="@android:color/secondary_text_light"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/smart_contact_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:autoLink="phone"
+                        android:gravity="center_vertical"
+                        android:linksClickable="true"
+                        android:paddingLeft="10dp"
+                        android:text="+639295288622"
+                        android:textColorHighlight="#00FFFFFF"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/globe_contact"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="6dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageView21"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:padding="5dp"
+                        app:srcCompat="@drawable/ic_contact_phone2_24dp" />
+
+                    <TextView
+                        android:id="@+id/textView14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:gravity="center_vertical"
+                        android:text="Globe:"
+                        android:textColor="@android:color/secondary_text_light"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/globe_contact_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:autoLink="phone"
+                        android:gravity="center_vertical"
+                        android:linksClickable="true"
+                        android:paddingLeft="10dp"
+                        android:text="+639770566322"
+                        android:textColorHighlight="#00FFFFFF"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/email_contact"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="6dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageView22"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="5dp"
+                        app:srcCompat="@drawable/ic_contact_email_24dp" />
+
+                    <TextView
+                        android:id="@+id/textView15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:autoLink="email"
+                        android:gravity="center_vertical"
+                        android:text="ramoreserrands@gmail.com"
+                        android:textColorHighlight="#00FFFFFF"
+                        android:textColorLink="@android:color/secondary_text_light"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/facebook_page"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="5dp"
+                android:clickable="true"
+                app:cardCornerRadius="6dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageView24"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center_vertical"
+                        android:padding="7dp"
+                        android:src="@drawable/fb_icon" />
+
+                    <TextView
+                        android:id="@+id/fb_page"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:gravity="center_vertical"
+                        android:text="https://www.facebook.com/ramoreserrands/"
+                        android:textColor="@android:color/secondary_text_light"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
