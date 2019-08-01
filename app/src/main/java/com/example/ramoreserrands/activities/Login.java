@@ -450,14 +450,8 @@ public class Login extends AppCompatActivity {
                     Date c_created_at = Calendar.getInstance().getTime();
                     SimpleDateFormat df_created_at = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
                     String created_at = df_created_at.format(c_created_at);
-//                    txtEmail.setText(email);
-//                    txtName.setText(first_name +" "+last_name);
                     RequestOptions requestOptions = new RequestOptions();
                     requestOptions.dontAnimate();
-//                    Glide.with(Login.this).load(image_url).into(circleImageView);
-//                    Toast.makeText(Login.this,"Name: " + first_name + " " + last_name, Toast.LENGTH_SHORT).show();
-//                    Toast.makeText(Login.this,"Email: " + email , Toast.LENGTH_SHORT).show();
-
                     onCreateAccount(first_name, last_name, email, image_url,created_at);
 
                 } catch (JSONException e) {
