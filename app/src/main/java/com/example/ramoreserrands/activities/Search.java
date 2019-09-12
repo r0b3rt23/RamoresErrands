@@ -78,6 +78,7 @@ public class Search extends AppCompatActivity implements RecyclerSearchViewAdapt
 
     private static String URL_JSON_COUNT = "http://www.ramores.com/rema/php/get_place_order_comp.php";
     private String URL_JSON = "http://www.ramores.com/rema/php/get_all_products.php";
+    private String URL_JSON_BRANDS = "http://www.ramores.com/rema/php/get_product_brands.php";
     private String URL_JSON_CAT = "http://www.ramores.com/rema/php/get_product_sub_category.php";
 
 //    private JsonArrayRequest request ;
@@ -156,6 +157,36 @@ public class Search extends AppCompatActivity implements RecyclerSearchViewAdapt
 
     }
 
+    private void InternetConnectionStatus(final String user_guest,final String id,final String category_s, final String subcat_s){
+        broadcastReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                if ( checkNetworkConnection()){
+                    progressDialog.show();
+                    jsonrequest_count(user_guest,id);
+                    if(category_s.equals("allproduct")){
+                        jsonrequestall();
+                    }else if (category_s.equals("Brands")){
+                        jsonrequestbrands(subcat_s);
+                    }
+                    else
+                    {
+                        jsonrequest(category_s,subcat_s);
+                    }
+                }
+                else
+                {
+                    cart_total_item.setText("No Internet Connection");
+                    toast_image.setImageResource(R.drawable.ic_signal_wifi__off_24dp);
+                    toast_text.setText("No Internet Connection.");
+                    toast.show();
+                }
+            }
+        };
+
+        registerReceiver(broadcastReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+    }
+
 //    @Override
 //    protected void onPostResume() {
 //        super.onPostResume();
@@ -225,6 +256,70 @@ public class Search extends AppCompatActivity implements RecyclerSearchViewAdapt
 //                params.put("Category", category);
 //                return params;
 //            }
+        };
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+                50000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
+        RequestQueue requestQueue = Volley.newRequestQueue(Search.this);
+        requestQueue.add(stringRequest);
+
+    }
+
+    private void jsonrequestbrands(final String brands) {
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_JSON_BRANDS,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try{
+                            JSONArray array = new JSONArray(response);
+
+                            for (int i = 0; i < array.length(); i++) {
+
+                                //getting product object from json array
+                                JSONObject datalist = array.getJSONObject(i);
+                                if (datalist.getString("product_available").equals("available")) {
+                                    Product product = new Product();
+                                    product.setProduct_id(datalist.getString("product_id"));
+                                    product.setProduct_name(datalist.getString("product_name"));
+                                    product.setProduct_desc(datalist.getString("product_desc"));
+                                    Double price = datalist.getDouble("product_price");
+                                    Double percentage = datalist.getDouble("product_percentage");
+
+                                    Double price_percent = price * percentage;
+                                    Double product_price = price_percent + price;
+
+                                    product.setProduct_price(product_price.toString());
+                                    product.setProduct_img(datalist.getString("product_img") + datalist.getString("product_name") + ".png");
+
+                                    search_list_product.add(product);
+                                }
+
+                            }
+
+                            setUpRecyclerView(search_list_product);
+
+                        }catch (JSONException e){
+                            e.printStackTrace();
+                            Toast.makeText(Search.this,"Error1 " + e.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(Search.this,"Error2" + error.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                })
+        {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("product_brand", brands);
+                return params;
+            }
         };
         stringRequest.setRetryPolicy(new DefaultRetryPolicy(
                 50000,
@@ -430,32 +525,6 @@ public class Search extends AppCompatActivity implements RecyclerSearchViewAdapt
     public static String formatDecimal(String value) {
         DecimalFormat df = new DecimalFormat("#,###,##0.00");
         return df.format(Double.valueOf(value));
-    }
-
-    private void InternetConnectionStatus(final String user_guest,final String id,final String category_s, final String subcat_s){
-        broadcastReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                if ( checkNetworkConnection()){
-                    progressDialog.show();
-                    jsonrequest_count(user_guest,id);
-                    if(category_s.equals("allproduct")){
-                        jsonrequestall();
-                    }else{
-                        jsonrequest(category_s,subcat_s);
-                    }
-                }
-                else
-                {
-                    cart_total_item.setText("No Internet Connection");
-                    toast_image.setImageResource(R.drawable.ic_signal_wifi__off_24dp);
-                    toast_text.setText("No Internet Connection.");
-                    toast.show();
-                }
-            }
-        };
-
-        registerReceiver(broadcastReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
     }
 
     public static String getMacAddr() {

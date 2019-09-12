@@ -16,10 +16,14 @@ public class Product {
 
     private String guest_cart_id;
 
+    private String brand_name;
+    private String brand_available;
+    private String brand_img;
+
     public Product(){
     }
 
-    public Product(String product_id, String product_name, String product_price, String product_desc, String product_img, String quantity, String subitem_total, String favorite_id, String subcategory_name, String subcategory_img, String guest_cart_id) {
+    public Product(String product_id, String product_name, String product_price, String product_desc, String product_img, String quantity, String subitem_total, String favorite_id, String subcategory_name, String subcategory_img, String guest_cart_id, String brand_name, String brand_available, String brand_img) {
         this.product_id = product_id;
         this.product_name = product_name;
         this.product_price = product_price;
@@ -31,6 +35,9 @@ public class Product {
         this.subcategory_name = subcategory_name;
         this.subcategory_img = subcategory_img;
         this.guest_cart_id = guest_cart_id;
+        this.brand_name = brand_name;
+        this.brand_available = brand_available;
+        this.brand_img = brand_img;
     }
 
     public String getProduct_id() {
@@ -77,6 +84,18 @@ public class Product {
         return favorite_id;
     }
 
+    public String getBrand_name() {
+        return brand_name;
+    }
+
+    public String getBrand_available() {
+        return brand_available;
+    }
+
+    public String getBrand_img() {
+        return brand_img;
+    }
+
     public void setProduct_id(String product_id) {
         this.product_id = product_id;
     }
@@ -119,5 +138,17 @@ public class Product {
 
     public void setFavorite_id(String favorite_id) {
         this.favorite_id = favorite_id;
+    }
+
+    public void setBrand_name(String brand_name) {
+        this.brand_name = brand_name;
+    }
+
+    public void setBrand_available(String brand_available) {
+        this.brand_available = brand_available;
+    }
+
+    public void setBrand_img(String brand_img) {
+        this.brand_img = brand_img;
     }
 }

@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.ramoreserrands.R;
+import com.example.ramoreserrands.fragments.Brands;
 import com.example.ramoreserrands.model.Product;
 
 import java.text.DecimalFormat;
@@ -105,6 +106,8 @@ public class RecyclerSearchViewAdapter extends RecyclerView.Adapter<RecyclerSear
             view = inflater.inflate(R.layout.product_item, parent, false);
         }else if (view_item.equals("cart")){
             view = inflater.inflate(R.layout.checkout_item, parent, false);
+        }else if (view_item.equals("brands")){
+            view = inflater.inflate(R.layout.sub_category_item, parent, false);
         }else {
             view = inflater.inflate(R.layout.sub_category_item,parent,false);
         }
@@ -141,6 +144,12 @@ public class RecyclerSearchViewAdapter extends RecyclerView.Adapter<RecyclerSear
             searchViewHolder.edit_quantity.setText(itemList.get(position).getQuantity());
 //            myViewHolder.img_product.setImageResource(R.drawable.grocery_icon);
             GlideApp.with(mContext).load(itemList.get(position).getProduct_img()).apply(options).into(searchViewHolder.img_product);
+
+        }
+        else if (view_item.equals("brands")){
+            searchViewHolder.tv_subcategory_name.setText(itemList.get(position).getBrand_name());
+//            myViewHolder.img_subcategory.setImageResource(R.drawable.grocery_icon);
+            GlideApp.with(mContext).load(itemList.get(position).getBrand_img()).apply(options).into(searchViewHolder.img_subcategory);
 
         }
         else {

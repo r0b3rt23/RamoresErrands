@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.example.ramoreserrands.fragments.AllProducts;
+import com.example.ramoreserrands.fragments.Brands;
 import com.example.ramoreserrands.fragments.Category;
 import com.example.ramoreserrands.fragments.NoNetwork;
 
@@ -37,7 +38,15 @@ public class tabpagerAdapter extends FragmentStatePagerAdapter {
             if (tabarray.get(i).equals("All Products")) {
                 AllProducts allProducts = new AllProducts();
                 return allProducts;
-            } else {
+            }
+            else if (tabarray.get(i).equals("Brands")) {
+                Bundle bundle = new Bundle();
+                String myMessage = tabarray.get(i);
+                bundle.putString("category_name", myMessage);
+                Brands allBrands = new Brands();
+                allBrands.setArguments(bundle);
+                return allBrands;
+            }else {
                 Bundle bundle = new Bundle();
                 String myMessage = tabarray.get(i);
                 bundle.putString("category_name", myMessage);
